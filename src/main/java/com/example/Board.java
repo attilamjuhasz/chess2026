@@ -69,7 +69,6 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
         for (int row = 0; row < 8; row++) {
             for (int col = 0; col < 8; col++) {
                 if ((row + col) % 2 == 0) {
-
                     board[row][col] = new Square(this, true, row, col);
                 } else {
                     board[row][col] = new Square(this, false, row, col);

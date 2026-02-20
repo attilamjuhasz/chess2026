@@ -61,7 +61,25 @@ public class Piece {
     //please note that your piece must have some sort of logic. Just being able to move to every square on the board is not
     //going to score any points.
     public ArrayList<Square> getLegalMoves(Board b, Square start){
+        //the board that I'm in
+        //b.getSquareArray();
+
+        //your location in this board is start.getRow() and start.getCol()
+        
+
         ArrayList<Square> moves = new ArrayList<Square>();
+
+        for (int row = 0; row < 8; row++){
+            for (int col = 0; row < 8; row++){
+                if (b.getSquareArray()[start.getRow()][start.getCol()+1].getOccupyingPiece().getColor() == true){
+                    //working
+                }
+            }
+        }
+
+        if (b.getSquareArray()[start.getRow()][start.getCol()+1].getOccupyingPiece()){
+
+        }
 
         if(start.getCol()+1<8){                   
             moves.add(b.getSquareArray()[start.getRow()][start.getCol()+1]);
