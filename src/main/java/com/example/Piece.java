@@ -69,21 +69,18 @@ public class Piece {
 
         ArrayList<Square> moves = new ArrayList<Square>();
 
-        for (int row = 0; row < 8; row++){
-            for (int col = 0; row < 8; row++){
-                if (b.getSquareArray()[start.getRow()][start.getCol()+1].getOccupyingPiece().getColor() == true){
-                    //working
-                }
+        for (int col = 0; col < 8; col++){
+            if ((b.getSquareArray()[start.getRow()][col].getOccupyingPiece().getColor() != this.getColor()) || (b.getSquareArray()[start.getRow()][col].getOccupyingPiece() == null)){
+                moves.add(b.getSquareArray()[start.getRow()][start.getCol()+1]);
             }
         }
 
-        if (b.getSquareArray()[start.getRow()][start.getCol()+1].getOccupyingPiece()){
-
+        for (int row = 0; row < 8; row++){
+            if ((b.getSquareArray()[row][start.getCol()].getOccupyingPiece().getColor() != this.getColor()) || (b.getSquareArray()[row][start.getCol()].getOccupyingPiece() == null)){
+                moves.add(b.getSquareArray()[start.getRow()][start.getCol()+1]);
+            }
         }
 
-        if(start.getCol()+1<8){                   
-            moves.add(b.getSquareArray()[start.getRow()][start.getCol()+1]);
-        }
-    	return null;
+        return moves;
     }
 }
