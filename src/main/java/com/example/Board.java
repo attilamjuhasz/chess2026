@@ -95,10 +95,10 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     // it's up to you how you wish to arrange your pieces.
     void initializePieces() {
 
-        board[0][0].put(new Piece(false, path+ RESOURCES_BROOK_PNG));
-        board[0][7].put(new Piece(false, path+ RESOURCES_BROOK_PNG));
-        board[7][0].put(new Piece(true, path+ RESOURCES_WROOK_PNG));
-        board[7][7].put(new Piece(true, path+ RESOURCES_WROOK_PNG));
+        board[0][0].put(new Piece(false, RESOURCES_BROOK_PNG));
+        board[0][7].put(new Piece(false, RESOURCES_BROOK_PNG));
+        board[7][0].put(new Piece(true, RESOURCES_WROOK_PNG));
+        board[7][7].put(new Piece(true, RESOURCES_WROOK_PNG));
 
     }
 
@@ -177,6 +177,10 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     @Override
     public void mouseReleased(MouseEvent e) {
         Square endSquare = (Square) this.getComponentAt(new Point(e.getX(), e.getY()));
+        for (Square legal : currPiece.getLegalMoves(this, currPiece)){
+            
+        }
+
 
         // using currPiece
 
