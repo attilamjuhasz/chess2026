@@ -172,6 +172,9 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     // use the pieces "legal move" function to determine if this move is legal, then
     // complete it by
     // moving the new piece to it's new board location.
+
+    //Precondition: the player is currently dragging a piece, and the piece is being dragged to a square on the board.
+    //Postcondition: if the piece is being dragged to a legal square, the piece is moved to that square. Otherwise, the piece is moved back to its original square.
     @Override
     public void mouseReleased(MouseEvent e) {
         

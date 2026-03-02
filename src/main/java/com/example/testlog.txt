@@ -1,0 +1,9 @@
+Tested the legal moves method by implementing a piece that can move like a rook. I ran the code and made sure the rook could move in the ways it's intended to, and put pieces next to it to see if it could jump over them.
+
+Tested the mouseReleased method by dragging a piece to a legal square and an illegal square, and making sure the piece only moved to the legal square. I also made sure that the piece would not move if it was not that pieces turn.
+
+Tested the getControlledSquares method by implementing it for a rook and making sure it did a System.out.println of the correct squares that the rook could move to, including when there were pieces in the way.
+
+Test the board set up by looking at an offical board on the internet and making sure it lined up with mine.
+
+Tested testing log by creating another testing log... wait... does this mean I created an infinite loop of testing logs with a runtime of O(n!)? Mr Mench, this might crash Universe.java v2026.03.02! :()
