@@ -50,8 +50,46 @@ public class Piece {
     //return a list of every square that is "controlled" by this piece. A square is controlled
     //if the piece capture into it legally.
     public ArrayList<Square> getControlledSquares(Square[][] board, Square start) {
+        ArrayList<Square> moves = new ArrayList<Square>();
+
+        for (int col = start.getCol()+1; col < 8; col++){
+            if (board[start.getRow()][col].getOccupyingPiece() == null || (board[start.getRow()][col].getOccupyingPiece().getColor() != this.getColor())){
+                moves.add(board[start.getRow()][col]);
+                if (board[start.getRow()][col].getOccupyingPiece() != null){
+                    col +=100;
+                }
+            }
+        }
+        for (int col = start.getCol()-1; col >= 0; col--){
+            if (board[start.getRow()][col].getOccupyingPiece() == null || (board[start.getRow()][col].getOccupyingPiece().getColor() != this.getColor())){
+                moves.add(board[start.getRow()][col]);
+                if (board[start.getRow()][col].getOccupyingPiece() != null){
+                    col = -1;
+                }
+            }
+        }
+
+        for (int row = start.getRow()+1; row < 8; row++){
+            if ((board[row][start.getCol()].getOccupyingPiece() == null) || (board[row][start.getCol()].getOccupyingPiece().getColor() != this.getColor())){
+                moves.add(board[row][start.getCol()]);
+                if (board[row][start.getCol()].getOccupyingPiece() != null){
+                    row = 100;
+                }
+            }
+        }
+
+        for (int row = start.getRow()-1; row >= 0; row--){
+            if ((board[row][start.getCol()].getOccupyingPiece() == null) || (board[row][start.getCol()].getOccupyingPiece().getColor() != this.getColor())){
+                moves.add(board[row][start.getCol()]);
+                if (board[row][start.getCol()].getOccupyingPiece() != null){
+                    row = -1;
+                }
+            }
+        }
+
         
-     return null;
+
+        return moves;
     }
     
 
@@ -71,17 +109,29 @@ public class Piece {
         ArrayList<Square> moves = new ArrayList<Square>();
 
         for (int col = start.getCol()+1; col < 8; col++){
-            if (b.getSquareArray()[start.getRow()][col].getOccupyingPiece() == null || (b.getSquareArray()[start.getRow()][col].getOccupyingPiece().getColor() != this.getColor())){
-                moves.add(b.getSquareArray()[start.getRow()][col]);
-                if (b.getSquareArray()[start.getRow()][col].getOccupyingPiece() != null){
-                    col +=100;
-                }
+            moves.add(b.getSquareArray()[start.getRow()][col]);
+            if (b.getSquareArray()[start.getRow()][col].getOccupyingPiece() != null){
+                col +=100;
+            }
+        }
+        for (int col = start.getCol()-1; col >= 0; col--){
+            moves.add(b.getSquareArray()[start.getRow()][col]);
+            if (b.getSquareArray()[start.getRow()][col].getOccupyingPiece() != null){
+                col = -1;
             }
         }
 
-        for (int row = 0; row < 8; row++){
-            if ((b.getSquareArray()[row][start.getCol()].getOccupyingPiece() == null) || (b.getSquareArray()[row][start.getCol()].getOccupyingPiece().getColor() != this.getColor())){
-                moves.add(b.getSquareArray()[row][start.getCol()]);
+        for (int row = start.getRow()+1; row < 8; row++){
+            moves.add(b.getSquareArray()[row][start.getCol()]);
+            if (b.getSquareArray()[row][start.getCol()].getOccupyingPiece() != null){
+                row = 100;
+            }
+        }
+
+        for (int row = start.getRow()-1; row >= 0; row--){
+            moves.add(b.getSquareArray()[row][start.getCol()]);
+            if (b.getSquareArray()[row][start.getCol()].getOccupyingPiece() != null){
+                row = -1;
             }
         }
 

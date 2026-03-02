@@ -174,12 +174,14 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     // moving the new piece to it's new board location.
     @Override
     public void mouseReleased(MouseEvent e) {
+        
         Square endSquare = (Square) this.getComponentAt(new Point(e.getX(), e.getY()));
         for (Square legal : currPiece.getLegalMoves(this, fromMoveSquare)){
-            if (legal.equals(endSquare)){
+            if (legal.equals(endSquare)&& currPiece.getColor()== whiteTurn){
                 endSquare.put(currPiece);
                 fromMoveSquare.removePiece();
                 fromMoveSquare.setDisplay(true);
+                whiteTurn= !whiteTurn;
             }
         }
         fromMoveSquare.setDisplay(true);
