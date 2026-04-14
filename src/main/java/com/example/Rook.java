@@ -17,6 +17,13 @@ public class Rook extends Piece{
         super(isWhite, img_file);
     }
     
+    public String toString() {
+        if (color)
+            return "white";
+        else
+            return "black";
+    }
+
     
     // TO BE IMPLEMENTED!
     //return a list of every square that is "controlled" by this piece. A square is controlled
