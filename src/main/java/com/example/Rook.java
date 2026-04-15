@@ -1,3 +1,8 @@
+//Attila Juhasz
+
+//Rook
+//A rook can move vertically and horizontally. It can't jump over pieces. It is worth 5 points.
+
 package com.example;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -16,13 +21,7 @@ public class Rook extends Piece{
     public Rook(boolean isWhite, String img_file) {
         super(isWhite, img_file);
     }
-    
-    public String toString() {
-        if (color)
-            return "white";
-        else
-            return "black";
-    }
+
 
     
     // TO BE IMPLEMENTED!
@@ -120,8 +119,19 @@ public class Rook extends Piece{
             }
         }
 
+       
+
         
 
         return moves;
+    }
+    
+    //Pre-condition: Rook is created and color is not null
+    //Post-condition: Returns what the piece is along with its color
+    public String toString() {
+        if (color)
+            return "white rook";
+        else
+            return "black rook";
     }
 }

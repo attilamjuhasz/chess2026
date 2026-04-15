@@ -99,6 +99,9 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
         board[0][7].put(new Rook(false, RESOURCES_BROOK_PNG));
         board[7][0].put(new Rook(true, RESOURCES_WROOK_PNG));
         board[7][7].put(new Rook(true, RESOURCES_WROOK_PNG));
+        board[7][0].put(new Rook(true, RESOURCES_WROOK_PNG));
+        board[7][4].put(new Rook(true, RESOURCES_WKING_PNG));
+        board[0][4].put(new Rook(false, RESOURCES_BKING_PNG));
 
     }
 
