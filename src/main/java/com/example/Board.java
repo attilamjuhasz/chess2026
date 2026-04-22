@@ -99,8 +99,8 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
         board[7][0].put(new Rook(true, RESOURCES_WROOK_PNG));
         board[7][7].put(new Rook(true, RESOURCES_WROOK_PNG));
         board[7][0].put(new Rook(true, RESOURCES_WROOK_PNG));
-        board[7][4].put(new Rook(true, RESOURCES_WKING_PNG));
-        board[0][4].put(new Rook(false, RESOURCES_BKING_PNG));
+        board[7][4].put(new King(true, RESOURCES_WKING_PNG));
+        board[0][4].put(new King(false, RESOURCES_BKING_PNG));
 
     }
 
@@ -226,7 +226,8 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     public void mouseExited(MouseEvent e) {
     }
 
-
+    //precondition - the board is initialized and contains a king of either color. The boolean kingColor corresponds to the color of the king we wish to know the status of.
+    //postcondition - returns true of the king is in check and false otherwise.
     public boolean isInCheck(boolean color){
 
         ArrayList<Square> enemyPieces = new ArrayList<Square>(); 
@@ -241,7 +242,6 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
             }
 
         }
-
         for (Square leSquare : enemyPieces){
             ArrayList<Square> controlled = leSquare.getOccupyingPiece().getControlledSquares(board, leSquare);
             for (Square marked : controlled){
@@ -251,7 +251,6 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
             }
 
         }
-
         return false;
     }
 

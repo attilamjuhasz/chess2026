@@ -1,3 +1,4 @@
+package com.example;
 //Mr. M
 //03/20/24
 //This class represents the King piece in our chess game. It is able to move exactly one square in any direction and controls those squares.
@@ -25,8 +26,8 @@ public class King extends Piece {
 	public ArrayList<Square> getLegalMoves(Board b, Square currentSquare) {
 		ArrayList<Square> legalMoves = new ArrayList<>();
 		Square[][] board = b.getSquareArray();
-		int row = currentSquare.getYNum();
-		int col = currentSquare.getXNum();
+		int row = currentSquare.getRow();
+		int col = currentSquare.getCol();
 		
 		//left
 		if (col > 0) {
@@ -102,8 +103,8 @@ public class King extends Piece {
 		ArrayList<Square> controlledSquares = new ArrayList<Square>();
 
 		// Determine the row and column of the current square
-		int row = currentSquare.getYNum();
-		int col = currentSquare.getXNum();
+		int row = currentSquare.getRow();
+		int col = currentSquare.getCol();
 
 		// Check each of the 8 squares surrounding the king
 		for (int i = -1; i <= 1; i++) {
